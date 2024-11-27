@@ -1,0 +1,196 @@
+.editor-container {
+  height: 100vh;
+  height: 100svh;
+  display: grid;
+  grid-template-columns: min(30%, 20rem) 1fr;
+  grid-template-rows: 70% min(15rem, 30%);
+}
+
+/* file explorer */
+
+.file-tree-viewer {
+  width: 100%;
+  background: var(--sidebar-background);
+  padding: 1rem;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.panel-title {
+  color: var(--highlight-color);
+  font-size: 0.85rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.file-tree {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.file-tree-item {
+  color: var(--foreground-color);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.file-tree-item.file {
+  color: #ffffff;
+}
+
+.file-tree-item.directory {
+  color: var(--highlight-color);
+  font-weight: bold;
+}
+
+.file-tree-item span {
+  cursor: pointer;
+}
+
+.file-tree-item.directory:hover {
+  color: #6ccf87;
+}
+
+.file-tree-item.file:hover {
+  color: #ffffff;
+}
+
+.file-tree-item:hover {
+  background-color: var(--editor-line-highlight-background);
+}
+
+/* FileEditor */
+
+.file-editor-container {
+  width: 100%;
+  height: 100%;
+  background-color: var(--editor-background);
+  color: var(--editor-foreground);
+  /* border-radius: 0.5rem; */
+  padding: 1.25rem;
+  font-family: "Courier New", Courier, monospace;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.file-editor-title {
+  font-size: 0.85rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  color: var(--highlight-color);
+  display: none;
+}
+
+.file-editor-wrapper {
+  height: 100%;
+  overflow-y: hidden;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+.file-editor-line-numbers {
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 0.625rem;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  color: var(--line-number-color);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  user-select: none;
+}
+
+.file-editor-line-numbers::-webkit-scrollbar {
+  display: none;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.line-number {
+  height: 1.5em;
+}
+
+.file-editor-textarea {
+  width: 100%;
+  height: 100%;
+  background-color: var(--editor-background);
+  color: var(--editor-foreground);
+  border: 1px solid #444;
+  border-radius: 0.25rem;
+  padding: 0.625rem;
+  font-size: 0.875rem;
+  font-family: "Courier New", Courier, monospace;
+  outline: none;
+  resize: none;
+  transition: border-color 0.3s ease;
+  overflow-y: auto;
+  line-height: 1.5;
+}
+
+.file-editor-textarea:focus {
+  border-color: var(--highlight-color);
+  box-shadow: 0 0 5px rgba(118, 231, 176, 0.7);
+}
+
+/* terminal */
+
+.terminal {
+  grid-column: 1 / -1;
+  background-color: var(--panel-background);
+  /* border-radius: 0.3125rem; */
+  padding: 1.25rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* height: 15rem; */
+  height: 100%;
+  overflow-y: auto;
+  border: 1px solid var(--panel-border);
+}
+
+.output {
+  white-space: pre-wrap;
+  font-family: "Courier New", Courier, monospace;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.command-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.command-input input {
+  flex-grow: 1;
+  padding: 0;
+  padding-left: 2ch;
+  background-color: transparent;
+  color: var(--highlight-color);
+  font-size: 0.875rem;
+  border: none;
+  outline: none;
+}
+
+.command-input::before {
+  content: "$";
+  position: absolute;
+  color: var(--highlight-color);
+  font-size: 0.875rem;
+}
+
+.command-input button {
+  background-color: var(--highlight-color);
+  border: none;
+  color: #121212;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3125rem;
+  cursor: pointer;
+}
+
+.command-input button:hover {
+  background-color: #026ec1;
+}
